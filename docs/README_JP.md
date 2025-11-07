@@ -29,8 +29,8 @@ YAML形式で出力する。
   ```
 - `treejson tests/root -f tests/output.json`
 
-  [tests/output.json](tests/output.json)
+  [tests/output.json](../tests/output.json)
 
 - `treejson tests/root -yf tests/output.yaml`
 
-  [tests/output.yaml](tests/output.yaml)
+  [tests/output.yaml](../tests/output.yaml)
