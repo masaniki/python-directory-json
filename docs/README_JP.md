@@ -23,14 +23,14 @@ YAML形式で出力する。
 隠しファイル('.'から始まるファイル)を表示する。
 
 ## 例
-- `treejson tests/root`
+- `treejson tests/sample`
   ```
-  {"root": [{"parent01": [{"child01_01": ["grandchild01.txt"]}, {"child01_02": []}, "child01_03.txt"]}, {"parent02": [{"child02_01": []}]}]}
+  {'sample': [{'parent01': [{'child01_01': ['grandchild01.txt']}, {'child01_02': ['grandchild02.txt']}, 'child01_03.txt']}, {'parent02': [{'child02_01': ['grandchild02_01.txt']}]}]}
   ```
-- `treejson tests/root -f tests/output.json`
+- `treejson tests/sample -f tests/output.json`
 
   [tests/output.json](../tests/output.json)
 
-- `treejson tests/root -yf tests/output.yaml`
+- `treejson tests/sample -yf tests/output.yaml`
 
   [tests/output.yaml](../tests/output.yaml)
