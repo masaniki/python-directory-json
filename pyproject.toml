@@ -3,12 +3,13 @@ requires = ["setuptools >= 77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "example_package_YOUR_USERNAME_HERE"
+name = "treejson-cli"
 version = "0.0.1"
 authors = [
-  { name="Example Author", email="author@example.com" },
+  { name="masaniki", email="masaniki.software@gmail.com" },
 ]
 description = "This shows directory structure by JSON or YAML."
+dependencies = [PyYAML]
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
@@ -17,6 +18,9 @@ classifiers = [
 ]
 license = "<license_name>"
 license-files = ["LICENCSE.txt"]
+
+[project.script]
+treejson = src:mainCLI
 
 [project.urls]
 Homepage = "https://github.com/pypa/sampleproject"
