@@ -20,7 +20,7 @@ license = "<license_name>"
 license-files = ["LICENCSE.txt"]
 
 [project.script]
-treejson = src:mainCLI
+treejson = src/main:mainCLI
 
 [project.urls]
 Document = "https://github.com/pypa/sampleproject"

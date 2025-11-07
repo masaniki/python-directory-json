@@ -10,6 +10,10 @@
 ディレクトリの構造をJSONに纏めて、標準出力する。
 
 ## Options
+`[-h|--help]`
+
+helpを表示する。
+
 `[-f|--file] <output_file>`
 
 ".json"(".yaml")ファイルを出力する。

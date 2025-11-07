@@ -23,10 +23,10 @@ def mainCLI():
         Abst: {directory名(str):[i(int):i番目の子directory名(str)]}という木構造。
     """
     parser=argparse.ArgumentParser()
-    parser.add_argument("dirName",type=str,help="Put in directory name. Both absolute and relative is OK.")
-    parser.add_argument("-y","--yaml",help="Output as a YAML format.",action="store_true")
-    parser.add_argument("-a","--all",help="Visit hidden file.",action="store_true")
-    parser.add_argument("-f","--file",type=str,help="Output as a file.")
+    parser.add_argument("dirName",type=str,help="put in directory name. Both absolute and relative is OK.")
+    parser.add_argument("-y","--yaml",help="output as a YAML format.",action="store_true")
+    parser.add_argument("-a","--all",help="visit hidden file.",action="store_true")
+    parser.add_argument("-f","--file",type=str,help="output as a file.")
     args=parser.parse_args()
     dirname=Path(args.dirName)
     outDict=directoryBFS(dirname.resolve(),isAll=args.all)
