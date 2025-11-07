@@ -23,5 +23,5 @@ license-files = ["LICENCSE.txt"]
 treejson = src:mainCLI
 
 [project.urls]
-Homepage = "https://github.com/pypa/sampleproject"
+Document = "https://github.com/pypa/sampleproject"
 Issues = "https://github.com/pypa/sampleproject/issues"

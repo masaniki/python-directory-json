@@ -1,1 +1,1 @@
-{"directory_json": ["Dockerfile", {"docs": ["coding_rule.md", "README_JP.md"]}, "LICENSE.txt", "pyproject.toml", "README.md", "requirements.txt", "sandbox.py", {"src": ["directory_json.py", {"unused": []}, "__init__.py", {"__pycache__": ["directory_json.cpython-311.pyc", "__init__.cpython-311.pyc"]}]}, {"tests": ["expected.json", "output.json", "test_dirjson.py"]}]}
+{"root": [{"parent01": [{"child01_01": ["grandchild01.txt"]}, {"child01_02": []}, "child01_03.txt"]}, {"parent02": [{"child02_01": []}]}]}

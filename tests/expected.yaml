@@ -1,0 +1,8 @@
+root:
+- parent01:
+  - child01_01:
+    - grandchild01.txt
+  - child01_02: []
+  - child01_03.txt
+- parent02:
+  - child02_01: []
