@@ -3,6 +3,7 @@ from pathlib import Path
 import argparse
 import yaml
 import json
+import doctest
 
 def mainCLI():
     """
@@ -60,6 +61,10 @@ def directoryBFS(startDir:Path,isAll:bool=None):
       Expl:
       - {directory名(str):[i(int):i番目の子directory名|file名(str)]}。
       - file名の時は、終端nodeになる。
+
+    Examples:
+    >>> directory_json.py .
+    {'directory_json': ['Dockerfile', {'docs': ['coding_rule.md', 'README_JP.md']}, 'LICENSE.txt', 'pyproject.toml', 'README.md', 'requirements.txt', 'sandbox.py', {'src': ['directory_json.py', 'test.txt', {'unused': []}, '__init__.py']}, {'tests': []}]}
     """
     if(isAll is None):
         isAll=False
