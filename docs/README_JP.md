@@ -4,6 +4,10 @@
 # インストール方法
 `pip install treejson-cli`
 
+## パッケージ依存性
+
+- [PyYAML](https://pypi.org/project/PyYAML/): 最も人気なPyhton用のYAMLパーサーです。
+
 # 実行方法
 `treejson <directory>`
 
