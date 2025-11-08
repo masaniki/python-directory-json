@@ -14,7 +14,7 @@ readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
     "Development Status :: 1 - Planning",
-    Environment :: Console,
+    "Environment :: Console",
     "Topic :: Terminals",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
