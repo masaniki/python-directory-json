@@ -33,8 +33,8 @@ visit hidden file.
   ```
 - `treejson tests/sample -f tests/output.json`
 
-  [tests/output.json](../tests/output.json)
+  [tests/output.json](tests/output.json)
 
 - `treejson tests/sample -yf tests/output.yaml`
 
-  [tests/output.yaml](../tests/output.yaml)
+  [tests/output.yaml](tests/output.yaml)

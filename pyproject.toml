@@ -13,14 +13,20 @@ dependencies = ["PyYAML"]
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
-    "Programming Language :: Python :: 3",
+    "Development Status :: 1 - Planning",
+    Environment :: Console,
+    "Topic :: Terminals",
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Natural Language :: English",
+    "Natural Language :: Japanese"
 ]
 license = "MIT"
 license-files = ["LICENCSE.txt"]
 
-[project.script]
-treejson = main:mainCLI
+[project.scripts]
+treejson = "main:mainCLI"
 
 [project.urls]
 Repository = "https://github.com/masaniki/python-treejson-cli"
