@@ -9,7 +9,7 @@ authors = [
   { name="masaniki", email="masaniki.software@gmail.com" },
 ]
 description = "It shows the nested directory structure in JSON or YAML."
-dependencies = [PyYAML]
+dependencies = ["PyYAML"]
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
@@ -20,8 +20,9 @@ license = "MIT"
 license-files = ["LICENCSE.txt"]
 
 [project.script]
-treejson = src/main:mainCLI
+treejson = main:mainCLI
 
 [project.urls]
-Document = "https://github.com/pypa/sampleproject"
-Issues = "https://github.com/pypa/sampleproject/issues"
+Repository = "https://github.com/masaniki/python-treejson-cli"
+Document = "https://github.com/masaniki/python-treejson-cli/blob/master/README.md"
+Issues = "https://github.com/masaniki/python-treejson-cli/issues"
