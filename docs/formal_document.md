@@ -1,4 +1,4 @@
-# 仕様
+# Discription
 
 - The directory name can be either a relative path or an absolute path.
 
@@ -10,14 +10,15 @@
 
 # EBNF
 
-## 前提
+## Special Symbols
 
-`?string?` represents character string.
+- `?string?` represents character string.
 
-`?decimal?` represents decimal integer. It is not negative.
+- `?decimal?` represents decimal integer. It is not negative.
 
-## 構文
+## Syntax
 
+```
 treejson_command = "treejson" args
 
 args = help_or_version | directory_args
@@ -31,3 +32,4 @@ directory_name = ?string?
 file = ?string?
 
 depth = ?decimal?
+```
