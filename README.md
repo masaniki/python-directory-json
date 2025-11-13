@@ -18,6 +18,9 @@ The following packages may not work properly if they are not installed:
 The directory structure is compiled into JSON and output to standard output.
 
 ## Options
+
+Detail document is [here](docs/formal_document.md).
+
 `[-h|--help]`
 
 Shows help message.

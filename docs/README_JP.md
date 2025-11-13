@@ -17,7 +17,7 @@
 
 ## Options
 
-詳細仕様は[ここ](formal_document.md)にあります。
+詳細仕様は[ここ](formal_document_JP.md)にあります。
 
 `[-h|--help]`
 
