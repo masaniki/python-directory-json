@@ -8,6 +8,8 @@ Japanse document is [here](docs/README_JP.md).
 
 ## Package Dependencies
 
+The following packages may not work properly if they are not installed:
+
 - [PyYAML](https://pypi.org/project/PyYAML/): Most popular YAML parser for Python.
 
 # How to run
@@ -18,19 +20,29 @@ The directory structure is compiled into JSON and output to standard output.
 ## Options
 `[-h|--help]`
 
-show help message and exit.
+Shows help message.
 
-`[-f|--file] <output_file>`
+`[-v|--version]`
 
-output as a file.
+Shows version message.
 
 `[-y|--yaml]`
 
-output as a YAML format.
+Outputs as a YAML format.
 
 `[-a|-all]`
 
-visit hidden file.
+Visits hidden file.
+
+`[-d|--depth] <depth>`
+
+Specifies the depth of tree oftraversal.
+
+If depth=0, it shows current directory.
+
+`[-f|--file] <output_file>`
+
+Outputs as a JSON or YAML file.
 
 ## Examples
 - `treejson tests/sample`

@@ -17,7 +17,7 @@
 
 ## Options
 
-詳細仕様は[ここ](formal_document_JP.md)にあります。
+詳細仕様は[ここ](formal_document.md)にあります。
 
 `[-h|--help]`
 
@@ -57,8 +57,3 @@ YAML形式で出力する。
 - `treejson tests/sample -yf tests/output.yaml`
 
   [tests/output.yaml](../tests/output.yaml)
-
-# 追記
-
-`tree -J`というコマンドでJSON表示できるらしい。
-
