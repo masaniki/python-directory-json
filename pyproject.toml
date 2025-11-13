@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "treejson-cli"
-version = "0.0.2"
+version = "0.2.0"
 authors = [
   { name="masaniki", email="masaniki.software@gmail.com" },
 ]

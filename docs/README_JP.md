@@ -42,3 +42,8 @@ YAML形式で出力する。
 - `treejson tests/sample -yf tests/output.yaml`
 
   [tests/output.yaml](../tests/output.yaml)
+
+# 追記
+
+`tree -J`というコマンドでJSON表示できるらしい。
+

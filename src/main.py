@@ -5,31 +5,37 @@ import yaml
 import json
 import doctest
 
+VERSION="v0.2.0"
+
 def mainCLI():
     """
-    Abst: CLIを処理する関数。
+    Smry: CLIを処理する関数。
 
     Expl:
     - path名は絶対pathでも相対pathでもok.
+    - "-v"(=--version) commandでこのCLIのversion情報を出力。
     - "-a"(=--all) commandで隠しfileや隠しdirectoryも表示。
     - "-y"(=--yaml)でyamlで出力する。
     - "-f"(=--file)でfile出力する。
-
-    Ideas:
-    - maxDepthの機能を付けるか？
+    - "-d"(=--depth)で最大の深さを指定する。
 
     Returns:
         Type: dict
-        Abst: {directory名(str):[i(int):i番目の子directory名(str)]}という木構造。
+        Smry: {directory名(str):[i(int):i番目の子directory名(str)]}という木構造。
     """
-    parser=argparse.ArgumentParser()
-    parser.add_argument("dirName",type=str,help="put in directory name. Both absolute and relative is OK.")
-    parser.add_argument("-y","--yaml",help="output as a YAML format.",action="store_true")
-    parser.add_argument("-a","--all",help="visit hidden file.",action="store_true")
+    parser=argparse.ArgumentParser(prog="PROG")
+    parser.add_argument("dirName",type=str,default=None,help="put in directory name. Both absolute and relative is OK.")
+    parser.add_argument("-v","--version",action="version",version=f"treejson {VERSION}",help="show version.")
+    parser.add_argument("-y","--yaml",action="store_true",help="output as a YAML format.")
+    parser.add_argument("-a","--all",action="store_true",help="visit hidden file.")
     parser.add_argument("-f","--file",type=str,help="output as a file.")
+    parser.add_argument("-d","--depth",type=int,help="specify maximum depth.")
     args=parser.parse_args()
+    if(args.v or args.version):
+        print(VERSION)
+        return
     dirname=Path(args.dirName)
-    outDict=directoryBFS(dirname.resolve(),isAll=args.all)
+    outDict=directoryBFS(dirname.resolve(),maxDepth=args.depth,isAll=args.all)
     if(args.yaml):
         if(args.file is None):
             yaml.safe_dump(outDict,sys.stdout)
@@ -43,38 +49,53 @@ def mainCLI():
             with open(args.file,mode="w",encoding="utf-8") as f:
                 json.dump(outDict,f)
 
-def directoryBFS(startDir:Path,isAll:bool=None):
+def directoryBFS(startDir:Path,maxDepth:int=None,isAll:bool=None):
     """
-    Abst: directory構造を幅優先探索する関数。
+    Smry: directory構造を幅優先探索する関数。
 
     Args:
       startDir:
-        Type: Path
-        Abst: 探索を開始するdirectory名。
+        Type: Path.
+        Smry: 探索を開始するdirectory名。
+      maxDepth:
+        Type: Int.
+        Smry: 探索の最大の深さ。
+        Expl:
+        - current directoryは深さ0。
+        - 「maxDepth<現在の深さ」の時に探索打ち切り。
+        Default: 255.
       isAll:
         Type: Bool.
-        Abst: {True⇒隠しfileも探索, False⇒隠しfileを通過。}
+        Smry: {True⇒隠しfileも探索, False⇒隠しfileを通過。}
         Default: false.
     Returns:
       Type: dict
-      Abst: {directory名(str):[i(int):i番目の子directory名(str)]}という木構造。
+      Smry: {directory名(str):[i(int):i番目の子directory名(str)]}という木構造。
       Expl:
       - {directory名(str):[i(int):i番目の子directory名|file名(str)]}。
       - file名の時は、終端nodeになる。
     """
+    if(maxDepth is None):
+        maxDepth=255
     if(isAll is None):
         isAll=False
     outDict={startDir.name:[]}
     visitQueue=[startDir]  #訪れるdirectory(Path型)を格納する。
-    dictQueue=[outDict[startDir.name]]  #訪れるdirectoryに対応するlist型を格納する。
+    listQueue=[outDict[startDir.name]]  #訪れるdirectoryの子要素のlist型を格納する。
+    depthQueue=[0]  #訪れるdiectoryの深さ(int型)を格納する。
     while(True):
         if(visitQueue==[]):
             break
         curDir=visitQueue.pop(0)
-        curList=dictQueue.pop(0)
+        curList=listQueue.pop(0)
+        curDepth=depthQueue.pop(0)
+        nextDepth=curDepth+1
+        if(maxDepth<nextDepth):
+            continue
         for childPath in curDir.iterdir():
             childName=childPath.name
-            if((not isAll) and childName[0]=='.'):
+            firstChr=childName[0]
+            if((not isAll) and firstChr=='.'):
                 continue
             if(childPath.is_file()):
                 curList.append(childName)
@@ -82,7 +103,8 @@ def directoryBFS(startDir:Path,isAll:bool=None):
                 childDict={childName:[]}
                 curList.append(childDict)
                 visitQueue.append(childPath)
-                dictQueue.append(childDict[childName])
+                listQueue.append(childDict[childName])
+                depthQueue.append(nextDepth)
     return outDict
 
 
