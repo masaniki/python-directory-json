@@ -3,9 +3,8 @@ from pathlib import Path
 import argparse
 import yaml
 import json
-import doctest
 
-VERSION="v0.2.0"
+VERSION="v0.2.1"
 
 def mainCLI():
     """
@@ -17,7 +16,7 @@ def mainCLI():
     """
     parser=argparse.ArgumentParser(prog="PROG")
     parser.add_argument("dirName",type=str,default=None,help="put in directory name. Both absolute and relative is OK.")
-    parser.add_argument("-v","--version",action="version",version=f"treejson {VERSION}",help="show version.")
+    parser.add_argument("-v","--version",action="version",version=f"treejson {VERSION}")
     parser.add_argument("-y","--yaml",action="store_true",help="output as a YAML format.")
     parser.add_argument("-a","--all",action="store_true",help="visit hidden file.")
     parser.add_argument("-f","--file",type=str,help="output as a file.")
