@@ -11,14 +11,6 @@ def mainCLI():
     """
     Smry: CLIを処理する関数。
 
-    Expl:
-    - path名は絶対pathでも相対pathでもok.
-    - "-v"(=--version) commandでこのCLIのversion情報を出力。
-    - "-a"(=--all) commandで隠しfileや隠しdirectoryも表示。
-    - "-y"(=--yaml)でyamlで出力する。
-    - "-f"(=--file)でfile出力する。
-    - "-d"(=--depth)で最大の深さを指定する。
-
     Returns:
         Type: dict
         Smry: {directory名(str):[i(int):i番目の子directory名(str)]}という木構造。

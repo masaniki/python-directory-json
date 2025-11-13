@@ -6,6 +6,8 @@
 
 ## パッケージ依存性
 
+以下のpackageをインストールしないと正しく機能しない場合があります。
+
 - [PyYAML](https://pypi.org/project/PyYAML/): 最も人気なPyhton用のYAMLパーサーです。
 
 # 実行方法
@@ -14,21 +16,34 @@
 ディレクトリの構造をJSONに纏めて、標準出力する。
 
 ## Options
+
+詳細仕様は[ここ](formal_document_JP.md)にあります。
+
 `[-h|--help]`
 
 helpを表示する。
 
-`[-f|--file] <output_file>`
+`[-v|--version]`
 
-".json"(".yaml")ファイルを出力する。
+versionを表示する。
 
 `[-y|--yaml]`
 
 YAML形式で出力する。
 
-`[-a|-all]`
+`[-a|--all]`
 
 隠しファイル('.'から始まるファイル)を表示する。
+
+`[-d|--depth] <depth>`
+
+探索の深さを指定する。
+
+深さ0の時はカレントディレクトリのみを表示する。
+
+`[-f|--file] <output_file>`
+
+".json"(".yaml")ファイルを出力する。
 
 ## 例
 - `treejson tests/sample`
