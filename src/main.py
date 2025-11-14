@@ -22,9 +22,6 @@ def mainCLI():
     parser.add_argument("-f","--file",type=str,help="output as a file.")
     parser.add_argument("-d","--depth",type=int,help="specify maximum depth.")
     args=parser.parse_args()
-    if(args.v or args.version):
-        print(VERSION)
-        return
     dirname=Path(args.dirName)
     outDict=directoryBFS(dirname.resolve(),maxDepth=args.depth,isAll=args.all)
     if(args.yaml):
